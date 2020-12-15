@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigation_java.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_subFragment"
+            app:destination="@id/subFragment" >
+            <argument
+                android:name="dataArg"
+                app:argType="integer"
+                android:defaultValue="1"/>
+            <!-- argument는 전환 작업 시 데이터를 전송에 필요한 인수를 생성하는 작업 -->
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/subFragment"
+        android:name="com.example.navigation_java.SubFragment"
+        android:label="fragment_sub"
+        tools:layout="@layout/fragment_sub">
+        <argument
+            android:name="dataArg"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <!-- argument는 전환 작업 시 해당 데이터를 받는 인수를 생성하는 작업 -->
+    </fragment>
+</navigation>
